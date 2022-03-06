@@ -23,7 +23,7 @@ export const fields: DFEField[] = [
       },
       {
         id: "company",
-        label: "company",
+        label: "Company",
         type: "text",
         name: "company",
         required: true,
