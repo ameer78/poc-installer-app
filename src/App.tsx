@@ -1,8 +1,8 @@
 import Header from "./Components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Progress from "./Containers/Progress/Progress";
-import Final from "./Containers/Final/Final";
+import Final from "./Components/Final/Final";
 import Options from "./Components/Options/Options";
+import Progress from "./Components/Progress/Progress";
 
 
 
@@ -16,7 +16,6 @@ function App() {
           <Route path="progress" element={<Progress />} />
           <Route path="final" element={<Final />} />
         </Routes>
-        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );

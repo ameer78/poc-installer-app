@@ -13,6 +13,7 @@ const AlertDialog = (props: any) => {
     <div>
       <Dialog
         open={open}
+        fullWidth={true}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"

@@ -84,6 +84,7 @@ export default class InstallStore {
       this.installationStatus = response.data;
     } catch (err) {
       this.InstallationErr = true;
+      throw(err);
     }
   }
 }
