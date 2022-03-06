@@ -17,7 +17,7 @@ function App() {
           <Route path="progress" element={<Progress />} />
           <Route path="final" element={<Final />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );

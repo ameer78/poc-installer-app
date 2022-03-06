@@ -15,20 +15,25 @@ import "./Options.scss";
 import { observer } from "mobx-react-lite";
 import { useRootStore } from "../../Store/RootStoreProvider";
 import { fields, _getPatternValue_, DFEField, patterns } from "./fields";
+import Footer from "../Footer/Footer";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 
 const Options = observer((props: any) => {
   const store = useRootStore();
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data: any) =>
+  const onSubmit = (data: any) => {
     store.installStore.setInstallInfo(data as any);
-
+    navigate("/progress");
+  }
 
   const formFields = fields.map((item: DFEField) => (
     <Grid item key={item.id} xs={12} sm={6} md={4}>
@@ -64,21 +69,14 @@ const Options = observer((props: any) => {
           {formFields}
         </Grid>
         <Grid item container spacing={1} className="form-container" width={12}>
-          {!store.installStore.userInfo.email ? (
-            <Grid item xs={12} sm={3} md={3}>
-              <FormControl fullWidth>
-                <Button variant="contained" type="submit">
-                  Submit Info
-                </Button>
-              </FormControl>
-            </Grid>
-          ) : (
+          {!store.installStore.userInfo.email &&
             <Alert style={{ width: "100%" }} severity="success">
               Information added successfully
             </Alert>
-          )}
+          }
         </Grid>
       </Grid>
+      <Footer type="submit" />
     </form>
   );
 });

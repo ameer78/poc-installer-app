@@ -2,7 +2,6 @@ import { Button, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./Footer.scss";
 import { useEffect, useState } from "react";
-import AlertDialog from "../AlertDialog/AlertDialog";
 import { observer } from "mobx-react-lite";
 import { useRootStore } from "../../Store/RootStoreProvider";
 
@@ -11,8 +10,6 @@ const Footer = observer((props: any) => {
   const store = useRootStore().installStore;
 
   const [showPrevious, setShowPrevious] = useState(true);
-  const [showDialog, setShowDialog] = useState(false);
-  console.log(store.inProgress);
 
   useEffect(() => {
     const url = window.location.href.split("/").pop();
@@ -23,21 +20,6 @@ const Footer = observer((props: any) => {
     }
   }, []);
 
-  const handleNextStep = () => {
-    const url = window.location.href.split("/").pop();
-    switch (url) {
-      case "":
-        if (!store.userInfo.email) {
-          setShowDialog(true);
-        } else {
-          store.setInProgress(true);
-          navigate("/progress");
-        }
-        break;
-      default:
-        break;
-    }
-  };
 
   return (
     <div className="footer-container">
@@ -47,7 +29,10 @@ const Footer = observer((props: any) => {
           {!store.inProgress &&
             !(store.installationStatus?.status === "success") && (
               <div className="buttons-container">
-                <Button variant="contained" onClick={handleNextStep}>
+                <Button variant="contained"
+                type={props.type}
+                // onClick={handleNextStep}
+                >
                   Next
                 </Button>
                 {showPrevious && (
@@ -64,14 +49,6 @@ const Footer = observer((props: any) => {
             )}
         </Grid>
       </Grid>
-      <AlertDialog
-        title={"Missing Info"}
-        message={"Please fill all required info in the previous form"}
-        handleClose={() => {
-          setShowDialog(false);
-        }}
-        open={showDialog}
-      />
     </div>
   );
 });

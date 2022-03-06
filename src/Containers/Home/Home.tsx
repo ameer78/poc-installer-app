@@ -4,7 +4,7 @@ const Home = (props: any) => {
   
   return (
     <div className="col-md-9">
-        <Options store={props.store} />
+        <Options />
     </div>
   );
 }
