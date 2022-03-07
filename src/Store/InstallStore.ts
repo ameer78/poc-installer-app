@@ -3,13 +3,6 @@ import axios from "axios";
 import Pusher from "pusher-js";
 import RootStore from "./RootStore";
 
-interface UserInfo {
-  email: string;
-  firstName: string;
-  lastName: string;
-  OS: string;
-  company: string;
-}
 
 //TODO take care of types
 
