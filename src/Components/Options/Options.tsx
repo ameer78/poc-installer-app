@@ -46,6 +46,7 @@ const Options = observer((props: any) => {
           maxLength: 100,
           pattern: _getPatternValue_(item.type)(patterns) || "",
         })}
+        label={item.label}
         error={Boolean(errors && errors[item.name])}
         helperText={errors[item.name] && `${item.label} ${errorMessage(errors[item.name].type)}.`}
       />
