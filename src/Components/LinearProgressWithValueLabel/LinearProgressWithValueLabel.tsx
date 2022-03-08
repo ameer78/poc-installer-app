@@ -23,12 +23,12 @@ const LinearProgressWithLabel = (
 };
 
 const LinearProgressWithValueLabel = (props: any) => {
-  const {progress} = props;
+  const {progress, message} = props;
 
   return (
     <Box sx={{ width: "100%", padding: "20px" }}>
       <Typography variant="h6">
-        We are preparing everything for you, may this will take several minutes
+        {message || ""}
       </Typography>
       <LinearProgressWithLabel value={progress} />
     </Box>

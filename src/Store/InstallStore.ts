@@ -22,6 +22,7 @@ export default class InstallStore {
   @observable public inProgress: boolean;
   @observable public loading: boolean;
   @observable public progress: number;
+  @observable public message: string;
 
   private installApiUrl = "http://localhost:8080/install";
   constructor(root: RootStore) {
@@ -39,6 +40,7 @@ export default class InstallStore {
     this.inProgress = false;
     this.loading = false;
     this.progress = 0;
+    this.message = "";
 
     makeObservable(this);
   }
@@ -60,6 +62,7 @@ export default class InstallStore {
 
       channel.bind("progress", (data: any) => {
         this.progress = data.percent;
+        this.message = data.message;
         if (data.percent === 100) {
           this.loading = false;
           this.progress = 0;

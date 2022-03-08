@@ -34,7 +34,7 @@ const Progress = observer((props: any) => {
         <img src="https://www.hp.com/content/dam/sites/worldwide/industrial-printers/indigo-digital-presses/printing-presses/section_3_product_100K.png" />
       </div>
 
-      <LinearProgressWithValueLabel progress={store.progress} />
+      <LinearProgressWithValueLabel message={store.message} progress={store.progress} />
       <AlertDialog 
         open={open}
         title="Error"
