@@ -4,7 +4,7 @@ import './Header.scss';
 const Header = (props: any) => {
   return (
     <div
-      className="header-container"
+      className="header-container main-bg"
     >
         <Typography variant="h2" color="#fff" className="header-title">
             POC Installer

@@ -22,7 +22,7 @@ const Footer = observer((props: any) => {
 
 
   return (
-    <div className="footer-container">
+    <div className="footer-container main-bg">
       <Grid container>
         <Grid item md={6} sm={0} xs={0}></Grid>
         <Grid item md={6} sm={12} xs={12}>

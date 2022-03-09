@@ -1,9 +1,6 @@
 import { useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
-import {
-  Alert,
-  Grid,
-} from "@mui/material";
+import { Alert, Grid } from "@mui/material";
 import { Typography } from "@mui/material";
 import "./Options.scss";
 import { observer } from "mobx-react-lite";
@@ -48,37 +45,57 @@ const Options = observer((props: any) => {
         })}
         label={item.label}
         error={Boolean(errors && errors[item.name])}
-        helperText={errors[item.name] && `${item.label} ${errorMessage(errors[item.name].type)}.`}
+        helperText={
+          errors[item.name] &&
+          `${item.label} ${errorMessage(errors[item.name].type)}.`
+        }
       />
     </Grid>
   ));
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid>
-        <Grid item container spacing={1} className="form-container" width={12}>
-          <Grid item sm={12}>
-            <Typography
-              variant="h2"
-              color="#165dba"
-              className="form-title"
-              fontSize={18}
-            >
-              Please fill the following:
-            </Typography>
+    <>
+    <div className="options-container main-bg">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Grid>
+          <Grid
+            item
+            container
+            spacing={1}
+            className="form-container"
+            width={12}
+          >
+            <Grid item sm={12}>
+              <Typography
+                variant="h2"
+                color="#165dba"
+                className="form-title"
+                fontSize={18}
+              >
+                Please fill the following:
+              </Typography>
+            </Grid>
+            {formFields}
           </Grid>
-          {formFields}
+          <Grid
+            item
+            container
+            spacing={1}
+            className="form-container"
+            width={12}
+          >
+            {store.installStore.userInfo.email && (
+              <Alert style={{ width: "100%" }} severity="success">
+                Information added successfully
+              </Alert>
+            )}
+          </Grid>
         </Grid>
-        <Grid item container spacing={1} className="form-container" width={12}>
-          {store.installStore.userInfo.email && (
-            <Alert style={{ width: "100%" }} severity="success">
-              Information added successfully
-            </Alert>
-          )}
-        </Grid>
-      </Grid>
-      <Footer type="submit" />
-    </form>
+        <Footer type="submit" />
+      </form>
+    </div>
+    
+    </>
   );
 });
 

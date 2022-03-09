@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Final from "./Components/Final/Final";
 import Options from "./Components/Options/Options";
 import Progress from "./Components/Progress/Progress";
-
+import "./App.css"
 
 
 function App() {

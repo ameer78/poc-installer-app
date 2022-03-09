@@ -1,0 +1,9 @@
+<svg id="Background_Main" data-name="Background/Main" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="509" height="417" viewBox="0 0 509 417">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.738" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#10559f"/>
+      <stop offset="1" stop-color="#000c19"/>
+    </radialGradient>
+  </defs>
+  <rect id="Main_Background" data-name="Main Background" width="509" height="417" fill="url(#radial-gradient)"/>
+</svg>

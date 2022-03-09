@@ -29,6 +29,8 @@ const LinearProgressWithValueLabel = (props: any) => {
     <Box sx={{ width: "100%", padding: "20px" }}>
       <Typography variant="h6">
         {message || ""}
+        <br />
+        {`${progress || 0}%`}
       </Typography>
       <LinearProgressWithLabel value={progress} />
     </Box>
